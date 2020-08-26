@@ -18,14 +18,19 @@ module.exports = class Repository {
 	async create(attrs) {
 		attrs.id = this.randomID();
 
-		const records = await this.getAll;
+		const records = await this.getAll();
+		records.push(attrs);
 		await this.writeAll(records);
 
 		return attrs;
 	}
 
 	async getAll() {
-		return JSON.parse(await fs.promises.readFile(this.filename, { encoding: 'utf8' }));
+		return JSON.parse(
+			await fs.promises.readFile(this.filename, {
+				encoding: 'utf8'
+			})
+		);
 	}
 
 	async writeAll(records) {
