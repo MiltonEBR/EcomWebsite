@@ -2,6 +2,8 @@ const layout = require('../layout');
 const { getError } = require('../../helpers');
 
 module.exports = ({ req, errors }) => {
+	console.log('on');
+
 	return layout({
 		content: `
       <div class="container">
@@ -21,8 +23,8 @@ module.exports = ({ req, errors }) => {
               </div>
               <div class="field">
                 <label class="label">Password Confirmation</label>
-                <input required class="input" placeholder="Password Confirmation" name="passwordConfirmation" type="password" />
-                <p class="help is-danger">${getError(errors, 'passwordConfirmation')}</p>
+                <input required class="input" placeholder="Password Confirmation" name="passwordConf" type="password" />
+                <p class="help is-danger">${getError(errors, 'passwordConf')}</p>
               </div>
               <button class="button is-primary">Submit</button>
             </form>
